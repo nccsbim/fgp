@@ -1,0 +1,125 @@
+{
+  "id": "http://findgreatplace.net/schemas/individualmemberprofileget.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "schema for get individual member profile",
+  "type": "object",
+  "properties": {
+    "individualmember": {
+      "type": "object",
+      "properties": {
+        "$ref": "#/definitions/individualmember"
+      }
+    },
+    "primarylocation": {
+      "type": "object",
+      "properties": {
+        "$ref": "#/definitions/memberlocations"
+      }
+    },
+    "primarycontacts": {
+      "type": "object",
+       "oneOf": {
+        "$ref": "#/definitions/memberemail",
+		"$ref": "#/definitions/memberphone",
+		"$ref": "#/definitions/memberfax"
+      }
+    },
+    "primaryemail": {
+      "type": "object",
+      "properties": {
+        "$ref": "#/definitions/memberemail"
+      }
+    },
+    "primaryid": {
+      "type": "object",
+      "properties": {
+        "$ref": "#/definitions/identification"
+      }
+    },
+    "indivudualname": {
+      "type": "object",
+      "properties": {
+        "$ref": "#/definitions/individualname",
+        "localname": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/localname"
+          }
+        }
+      }
+    },
+    "memberlocation": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/memberlocation",
+        "localaddress": {
+          "type": "object",
+          "properties": {
+            "$ref": "#/definitions/individualname"
+          }
+        }
+      }
+    },
+    "nativelanguage": {
+      "type": "object",
+      "properties": {
+        "$ref": "#/definitions/memberusablelanguage"
+      }
+    },
+    "usablelanguage": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/memberusablelanguage"
+      }
+    },
+    "identification": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/identification"
+      }
+    },
+    "internationalidentification": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/identification"
+      }
+    },
+    "membercontacts": {
+      "type": "objet",
+      "properties": {
+        "email": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/memberemail"
+          }
+        },
+        "phone": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/memberphone"
+          }
+        },
+        "fax": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/memberfax"
+          }
+        }
+      }
+    },
+    "iccard": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/iccard"
+      }
+    },
+    "certifier": {
+      "type": "object",
+      "oneOf": {
+        "$ref": "#/definitions/spacecertificate",
+		"$ref": "#/definitions/sponsorcertificate",
+		"$ref": "#/definitions/certifiercertificate"
+      }
+    }
+  }
+}
